@@ -1,0 +1,128 @@
+﻿@model Shirt
+
+<h3>Shirt</h3>
+<br />
+<form method="post" asp-action="CreateShirt">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Brand" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <select asp-for="Brand" class="form-control" style="color: black;">
+                <option disabled selected>Choose brand</option>
+                <option value="Ralph Lauren">Ralph Lauren</option>
+                <option value="Tommy Hilfiger">Tommy Hilfiger</option>
+                <option value="Calvin Klein">Calvin Klein</option>
+                <option value="Hugo Boss">Hugo Boss</option>
+                <option value="Lacoste">Lacoste</option>
+                <option value="Levi's">Levi's</option>
+                <option value="Armani Exchange">Armani Exchange</option>
+                <option value="Burberry">Burberry</option>
+                <option value="Gucci">Gucci</option>
+                <option value="Versace">Versace</option>
+                <option value="Zara">Zara</option>
+                <option value="H&M">H&M</option>
+                <option value="Abercrombie & Fitch">Abercrombie & Fitch</option>
+                <option value="Gap">Gap</option>
+                <option value="Diesel">Diesel</option>
+                <option value="J.Crew">J.Crew</option>
+                <option value="Banana Republic">Banana Republic</option>
+                <option value="Uniqlo">Uniqlo</option>
+                <option value="Polo Ralph Lauren">Polo Ralph Lauren</option>
+                <option value="Brooks Brothers">Brooks Brothers</option>
+            </select>
+        </div>
+        <div class="col">
+            <span class="text-danger" asp-validation-for="Brand"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Gender" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <select asp-for="Gender" class="form-control" style="color: black;" onchange="updateTextField(this)">
+                <option disabled selected>Choose from dropdown box</option>
+                <option value="Men">Men</option>
+                <option value="Women">Women</option>
+                <option value="Unisex">Unisex</option>
+            </select>
+        </div>
+        <div class="col">
+            <span class="text-danger" asp-validation-for="Gender"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Color" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Color" class="form-control" />
+        </div>
+        
+        <div class="col">
+            <span class="text-danger" asp-validation-for="Color"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Size" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <select asp-for="Size" class="form-control" style="color: black;">
+                <option disabled selected>Choose size</option>
+                <option value="6">XXXS: 6</option>
+                <option value="8">XXS: 8</option>
+                <option value="10">XS: 10</option>
+                <option value="12">S: 12</option>
+                <option value="14">M: 14</option>
+                <option value="16">L: 16</option>
+                <option value="18">XL: 18</option>
+                <option value="20">XXL: 20</option>
+                <option value="22">XXXL: 22</option>
+            </select>
+        </div>
+        <div class="col">
+            <span class="text-danger" asp-validation-for="Size"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Price" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="number" asp-for="Price" class="form-control" placeholder="Enter Price in Euros" style="color: grey;" />
+        </div>
+        <div class="col">
+            <span class="text-danger" asp-validation-for="Price"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <input type="submit" class="btn btn-primary" vlaue="Submit" />
+            
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary" onclick="window.history.back()" style="background-color: red">Cancel</button>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+
+    
+
+    <script>
+        function updateTextField(select) {
+            var selectedOption = select.options[select.selectedIndex].text;
+            document.getElementById("genderText").value = selectedOption;
+            document.getElementById("genderText").style.color = "black";
+        }
+    </script>
+</form>
